@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="google-adsense-account" content="ca-pub-8915931557404979">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232563eb'/%3E%3Ctext x='16' y='22' font-size='17' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>PriceScope: Live Brent, WTI, Gold, China Fuel Prices & FX Rates in 7 Languages</title>
+<meta name="description" content="PriceScope tracks international crude oil (Brent and WTI), gold in USD/oz and CNY/gram, China's retail fuel prices across all 31 provinces, and currency exchange rates — server-rendered, updated frequently, available in 7 languages.">
+<meta name="keywords" content="pricescope, brent crude price, wti price today, gold price per ounce, china fuel price, 92 95 98 gasoline price, exchange rate converter, oil price today">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<link rel="canonical" href="https://zook.cc.cd/tools/pricescope.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://zook.cc.cd/tools/pricescope.html">
+<meta property="og:title" content="PriceScope: Live Brent, WTI, Gold, China Fuel Prices & FX Rates in 7 Languages">
+<meta property="og:description" content="PriceScope tracks international crude oil (Brent and WTI), gold in USD/oz and CNY/gram, China's retail fuel prices across all 31 provinces, and currency exchange rates — server-rendered, updated frequently, available in 7 languages.">
+<meta property="og:site_name" content="Useful Web Tools Directory">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PriceScope: Live Brent, WTI, Gold, China Fuel Prices & FX Rates in 7 Languages">
+<meta name="twitter:description" content="PriceScope tracks international crude oil (Brent and WTI), gold in USD/oz and CNY/gram, China's retail fuel prices across all 31 provinces, and currency exchange rates — server-rendered, updated frequently, available in 7 languages.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--blue:#2563eb;--deep:#1e40af;--navy:#1e3a8a;--ink:#1e293b;--gray:#475569;--line:#e2e8f0;--bg:#f8fafc;--card:#fff}
+html{scroll-behavior:smooth}
+body{line-height:1.75;color:var(--ink);background:var(--bg);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+max-width:820px;margin:0 auto;padding:0 20px 70px;font-size:16.5px}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+/* 顶栏 */
+.topbar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;
+padding:14px 0;border-bottom:1px solid var(--line);margin-bottom:8px;font-size:14px}
+.brand{font-weight:700;color:var(--blue);font-size:16px;letter-spacing:-.2px}
+.topbar nav a{margin-left:12px;color:var(--gray)}
+/* 面包屑 */
+.crumb{font-size:13px;color:#94a3b8;margin:14px 0 18px}
+.crumb a{color:#64748b}
+/* 标题区 */
+h1{color:var(--navy);font-size:31px;line-height:1.3;margin-bottom:14px;letter-spacing:-.5px}
+.meta{font-size:13.5px;color:#94a3b8;margin-bottom:18px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.meta span{margin-right:16px}
+.lede{color:#334155;font-size:17.5px;line-height:1.7;margin:0 0 24px;padding:18px 20px;
+background:linear-gradient(135deg,#eff6ff,#f0f9ff);border-left:4px solid var(--blue);border-radius:0 8px 8px 0}
+/* 目录 */
+.toc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 20px;margin:0 0 28px;font-size:15px}
+.toc b{display:block;color:var(--navy);margin-bottom:8px;font-size:14px;text-transform:uppercase;letter-spacing:.6px}
+.toc a{display:inline-block;margin:4px 18px 4px 0;color:var(--blue)}
+/* 正文 */
+h2{color:var(--navy);font-size:22px;margin:38px 0 14px;padding-left:12px;border-left:4px solid var(--blue);letter-spacing:-.3px}
+h3{color:var(--deep);font-size:17.5px;margin:24px 0 10px}
+p{margin-bottom:15px}
+ul,ol{margin:0 0 16px 24px}
+li{margin-bottom:9px}
+strong{color:var(--navy)}
+/* 表格 */
+.tw{overflow-x:auto;margin:16px 0 22px}
+table{width:100%;border-collapse:collapse;background:var(--card);font-size:15px;
+border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(15,23,42,.06)}
+th,td{border:1px solid var(--line);padding:11px 14px;text-align:left;vertical-align:top}
+th{background:#eff6ff;color:var(--navy);width:30%;font-weight:600}
+tr:nth-child(even) td{background:#fcfdff}
+/* CTA */
+.cta{display:inline-block;background:var(--blue);color:#fff!important;padding:13px 26px;border-radius:8px;
+font-weight:700;margin:6px 10px 6px 0;box-shadow:0 2px 6px rgba(37,99,235,.25);transition:.15s}
+.cta:hover{background:#1d4ed8;text-decoration:none;transform:translateY(-1px)}
+.cta.ghost{background:#fff;color:var(--blue)!important;border:1px solid var(--blue);box-shadow:none}
+.cta.ghost:hover{background:#eff6ff}
+/* 提示框 */
+.note{background:#fffbeb;border:1px solid #fcd34d;border-radius:8px;padding:14px 18px;margin:20px 0;font-size:14.5px;color:#78350f}
+.tip{background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:14px 18px;margin:20px 0;font-size:14.5px;color:#14532d}
+.info{background:#eff6ff;border:1px solid #93c5fd;border-radius:8px;padding:14px 18px;margin:20px 0;font-size:14.5px;color:var(--navy)}
+.note b,.tip b,.info b{display:block;margin-bottom:4px}
+/* 优缺点 */
+.proscons{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:18px 0 24px}
+@media(max-width:620px){.proscons{grid-template-columns:1fr}}
+.pc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.pc h3{margin:0 0 10px;font-size:16px}
+.pc.ok{border-top:3px solid #22c55e}
+.pc.no{border-top:3px solid #f59e0b}
+.pc ul{margin:0 0 0 20px;font-size:15px}
+/* FAQ */
+.faq{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:6px 20px 16px;margin:18px 0 26px}
+.faq details{border-bottom:1px solid #f1f5f9;padding:14px 0}
+.faq details:last-child{border-bottom:none}
+.faq summary{cursor:pointer;font-weight:600;color:var(--deep);font-size:16px;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:before{content:"+";display:inline-block;width:18px;color:var(--blue);font-weight:700}
+.faq details[open] summary:before{content:"\2212"}
+.faq details p{margin:10px 0 2px 20px;font-size:15.5px;color:#334155}
+/* 底部 */
+.back{margin-top:44px;padding-top:20px;border-top:1px solid var(--line);font-size:14.5px}
+.related{margin-top:14px;font-size:14.5px;line-height:2.2}
+.related a{margin-right:14px;display:inline-block;background:#fff;border:1px solid var(--line);
+padding:5px 12px;border-radius:20px;font-size:14px}
+.related a:hover{background:#eff6ff;border-color:var(--blue);text-decoration:none}
+footer{margin-top:30px;text-align:center;color:#94a3b8;font-size:13px;line-height:2}
+footer a{color:#64748b}
+
+/* 双语切换 */
+body{ }
+.lsw{display:inline-flex;gap:4px;vertical-align:middle;margin-left:10px}
+.lsw button{border:1px solid var(--line);background:#fff;color:var(--gray);
+font-size:12px;padding:3px 9px;border-radius:5px;cursor:pointer;line-height:1.5}
+.lsw button.on{background:var(--blue);color:#fff;border-color:var(--blue)}
+.lang-en .cn{display:none!important}
+.lang-cn .en{display:none!important}
+</style>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://zook.cc.cd/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://zook.cc.cd/#img-media"}, {"@type": "ListItem", "position": 3, "name": "PriceScope: Live Brent, WTI, Gold, China Fuel Prices & FX Rates in 7 Languages", "item": "https://zook.cc.cd/tools/pricescope.html"}]}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "WebPage", "url": "https://zook.cc.cd/tools/pricescope.html", "name": "PriceScope: Live Brent, WTI, Gold, China Fuel Prices & FX Rates in 7 Languages", "description": "PriceScope tracks international crude oil (Brent and WTI), gold in USD/oz and CNY/gram, China's retail fuel prices across all 31 provinces, and currency exchange rates — server-rendered, updated frequently, available in 7 languages.", "inLanguage": "en", "isPartOf": {"@type": "WebSite", "url": "https://zook.cc.cd/", "name": "Useful Web Tools Directory"}}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is PriceScope free to use?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Every page and all four data sections are free with no registration required."}}, {"@type": "Question", "name": "What is the difference between Brent and WTI?", "acceptedAnswer": {"@type": "Answer", "text": "Brent is the international benchmark sourced from North Sea crude, and prices most of the world's oil. WTI is the US benchmark delivered at Cushing, Oklahoma, and usually trades slightly below Brent. The gap between the two is watched as a market signal in its own right."}}, {"@type": "Question", "name": "Which provinces does the China fuel page cover?", "acceptedAnswer": {"@type": "Answer", "text": "All 31 provincial-level regions, each listing 92, 95 and 98 gasoline plus 0# diesel retail prices."}}, {"@type": "Question", "name": "Can I see gold in yuan per gram?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Gold is shown both as USD per troy ounce (the global convention) and as CNY per gram (what Chinese retail buyers use)."}}, {"@type": "Question", "name": "How often are prices updated?", "acceptedAnswer": {"@type": "Answer", "text": "Figures are refreshed from public feeds on a frequent schedule, and each page shows the last update time. It is a reference source, not live exchange tick data."}}, {"@type": "Question", "name": "What languages are available?", "acceptedAnswer": {"@type": "Answer", "text": "Seven: English, Chinese, Japanese, Spanish, French, German and Portuguese. The language appears in the URL, so you can bookmark a specific version."}}]}
+</script>
+<style>
+.rel-wrap{max-width:1100px;margin:40px auto 0;padding:0 20px}
+.rel-box{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:22px 24px;margin-bottom:20px}
+.rel-box h2{font-size:18px;color:#1e3a8a;margin-bottom:14px;border-left:4px solid #2563eb;padding-left:10px}
+.rel-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.rel-list a{display:block;padding:12px 14px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;text-decoration:none;color:#1d4ed8;font-weight:600;font-size:15px;transition:.2s}
+.rel-list a:hover{background:#eff6ff;border-color:#2563eb}
+.rel-list a small{display:block;margin-top:4px;color:#64748b;font-weight:400;font-size:13px}
+.crumb{max-width:1100px;margin:0 auto;padding:14px 20px 0;font-size:13px;color:#64748b}
+.crumb a{color:#2563eb;text-decoration:none}
+.crumb a:hover{text-decoration:underline}
+</style>
+</head>
+<nav class="crumb"><a href="/"><span class="en">Home</span><span class="cn">首页</span></a> &rsaquo; <span class="en">Data & Price Trackers</span><span class="cn">数据与价格查询</span> &rsaquo; <span class="en">PriceScope</span><span class="cn">PriceScope 原油金价汇率</span></nav><body class="lang-en">
+<div class="topbar">
+<a class="brand" href="https://zook.cc.cd/">&larr; <span class="en">Useful Web Tools Directory</span><span class="cn">实用在线工具合集</span></a>
+<nav><a href="https://zook.cc.cd/about.html"><span class="en">About</span><span class="cn">关于</span></a> <a href="https://zook.cc.cd/contact.html"><span class="en">Contact</span><span class="cn">联系</span></a> <a href="https://zook.cc.cd/disclaimer.html"><span class="en">Disclaimer</span><span class="cn">免责声明</span></a> <a href="https://zook.cc.cd/privacy.html"><span class="en">Privacy</span><span class="cn">隐私</span></a></nav>
+</div>
+<div class="crumb"><a href="https://zook.cc.cd/"><span class="en">Home</span><span class="cn">首页</span></a> &rsaquo; <a href="https://zook.cc.cd/#tools"><span class="en">Tools</span><span class="cn">工具</span></a> &rsaquo; Data & Finance</div>
+<h1>PriceScope</h1>
+<div class="meta"><span><span class="en">Updated Oct 2026</span><span class="cn">2026年10月更新</span></span><span>Category: Data & Finance</span><span><span class="en">Hands-on tested</span><span class="cn">实测收录</span></span></div>
+<p class="lede"><span class="en">PriceScope is a live price dashboard covering the four things people actually search for every morning: international crude oil, gold, China's retail fuel prices in every province, and currency exchange rates. It is server-side rendered, so both you and Google's crawler see real numbers in the HTML — not an empty shell waiting for JavaScript.</span><span class="cn">PriceScope 是一个实时价格看板，覆盖人们每天早上真正会搜的四类信息：国际原油、黄金、全国各省的国内零售油价，以及货币汇率。它采用服务端渲染，所以你和 Google 的爬虫在 HTML 里看到的都是真实数字——而不是一个等着 JavaScript 填充的空壳。</span></p>
+<div class="toc"><b><span class="en">On this page</span><span class="cn">本页目录</span></b><a href="#what-it-is"><span class="en">What It Is</span><span class="cn">这是什么</span></a> <a href="#what-it-tracks"><span class="en">What It Tracks</span><span class="cn">它追踪哪些数据</span></a> <a href="#how-to-use-it"><span class="en">How To Use It</span><span class="cn">怎么用</span></a> <a href="#why-server-rendering-matters"><span class="en">Why Server Rendering Matters</span><span class="cn">服务端渲染为什么重要</span></a> <a href="#free-plan-details"><span class="en">Free Plan Details</span><span class="cn">免费版详情</span></a> <a href="#what-works-well"><span class="en">What Works Well</span><span class="cn">好用的地方</span></a> <a href="#limitations"><span class="en">Limitations</span><span class="cn">不足之处</span></a> <a href="#who-should-use-it"><span class="en">Who Should Use It</span><span class="cn">适合谁用</span></a></div>
+<h2 id="what-it-is"><span class="en">What It Is</span><span class="cn">这是什么</span></h2>
+
+<p><span class="en"><strong>PriceScope</strong> is a real-time price site built on Cloudflare Workers. It pulls commodity and currency data and renders the actual numbers into the HTML before the page reaches your browser. That detail sounds technical but has two practical consequences: the page loads with figures already visible (no blank boxes while scripts run), and search engines can read the real values — which is why its pages get indexed cleanly.</span><span class="cn"><strong>PriceScope</strong> 是一个构建在 Cloudflare Workers 上的实时价格站。它抓取大宗商品和汇率数据，并在页面送达你浏览器之前，就把真实数字渲染进 HTML 里。这个细节听着技术，却带来两个实际好处：页面一打开数字就已经在那儿（不会先空着等脚本跑完），而且搜索引擎能读到真实数值 —— 这也是它的页面能被干净收录的原因。</span></p>
+<p><span class="en">The site covers four distinct data areas, each with its own dedicated page:</span><span class="cn">站点覆盖四个独立的数据板块，各有专属页面：</span></p>
+<ul>
+<li><span class="en"><strong>International Crude Oil</strong> — Brent and WTI benchmarks, the two reference prices nearly every oil article quotes</span><span class="cn">国际原油——布伦特与 WTI 两大基准，几乎所有石油文章都会引用的两个参考价</span></li>
+<li><span class="en"><strong>Gold</strong> — quoted both per troy ounce in USD and per gram in CNY, so you can check either the global benchmark or the price your local jeweller is referencing</span><span class="cn">黄金——同时以美元/金衡盎司和元/克两种单位报价，你既能查国际基准价，也能查本地金店所参考的价格</span></li>
+<li><span class="en"><strong>China Retail Fuel</strong> — 92, 95, 98 and 0# diesel prices for all 31 provinces and regions</span><span class="cn">国内成品油——全国 31 个省市自治区的 92、95、98 号汽油及 0# 柴油价格</span></li>
+<li><span class="en"><strong>Currency</strong> — a converter plus the most-requested exchange rate pairs</span><span class="cn">货币——一个换算器，外加最常被查询的汇率货币对</span></li>
+</ul>
+<p><span class="en">It is offered in <strong>seven languages</strong> — English, Chinese, Japanese, Spanish, French, German and Portuguese. The language is part of the URL (for example <code>/en/oil/</code> or <code>/zh/gold/</code>), so you can bookmark or share a specific language version directly.</span><span class="cn">它提供<strong>七种语言</strong> —— 英语、中文、日语、西班牙语、法语、德语和葡萄牙语。语言就写在网址里（比如 <code>/en/oil/</code> 或 <code>/zh/gold/</code>），所以你可以直接把某个语言版本加书签或分享出去。</span></p>
+<p><a class="cta" href="https://you.piccalc.com" target="_blank" rel="noopener"><span class="en">Open PriceScope &rarr;</span><span class="cn">打开 PriceScope &rarr;</span></a>
+<a class="cta ghost" href="https://you.piccalc.com/en/oil/" target="_blank" rel="noopener">Crude Oil Page</a></p>
+
+<h2 id="what-it-tracks"><span class="en">What It Tracks</span><span class="cn">它追踪哪些数据</span></h2>
+
+<h3><span class="en">Crude oil — Brent and WTI</span><span class="cn">原油 —— 布伦特与 WTI</span></h3>
+<p><span class="en">These are the two benchmarks that matter. <strong>Brent</strong> is the international reference, sourced from North Sea production, and it is what most of the world's oil is priced against. <strong>WTI</strong> (West Texas Intermediate) is the US benchmark, delivered at Cushing, Oklahoma, and typically trades a few dollars below Brent. The gap between them — the "Brent-WTI spread" — is itself closely watched as a signal about US supply, shipping capacity and global demand.</span><span class="cn">这是两个真正重要的基准。布伦特是国际参考价，产自北海，全球大部分石油都以它为定价基准。WTI（西德克萨斯中质原油）是美国基准，在俄克拉荷马州库欣交割，通常比布伦特低几美元。两者之间的价差——「布伦特-WTI 价差」——本身就被密切关注，被视为反映美国供应、运输能力和全球需求的信号。</span></p>
+<p><span class="en">PriceScope shows both, so you can see the spread rather than having to look up two sites and subtract.</span><span class="cn">PriceScope 两个都显示，所以你能直接看到价差，而不必查两个网站再做减法。</span></p>
+<h3><span class="en">Gold — per ounce and per gram</span><span class="cn">黄金 —— 按盎司与按克</span></h3>
+<p><span class="en">Gold is quoted globally in <strong>US dollars per troy ounce</strong>, but retail buyers in China think in <strong>yuan per gram</strong>. Converting between them is a small but constant annoyance: one troy ounce is about 31.1035 grams, and then you need the current USD/CNY rate on top. PriceScope displays both units, removing the manual arithmetic.</span><span class="cn">黄金在国际上按<strong>美元/金衡盎司</strong>报价，但国内零售买家习惯按<strong>元/克</strong>思考。两者换算是个不大却一直存在的麻烦：一金衡盎司约等于 31.1035 克，之后还得再乘上当下的美元兑人民币汇率。PriceScope 同时显示两种单位，省掉你手动计算。</span></p>
+<h3><span class="en">China fuel — all 31 provinces</span><span class="cn">国内油价 —— 覆盖全部 31 个省份</span></h3>
+<p><span class="en">This is the feature with the least competition. China adjusts retail fuel prices on a published cycle, and the result differs by province — Beijing's 95-octane is not priced identically to Guangdong's. PriceScope lists 92, 95 and 98 gasoline plus 0# diesel across all 31 provincial-level regions, which is the number most drivers actually want when the adjustment window comes around.</span><span class="cn">这是竞争最少的一项功能。国内成品油按公布周期调整零售价，且各省结果不同——北京的 95 号汽油和广东的并不一样。PriceScope 列出全部 31 个省级行政区的 92、95、98 号汽油及 0# 柴油价格，而这正是调价窗口来临时多数车主真正想看的数字。</span></p>
+<h3><span class="en">Currency</span><span class="cn">汇率</span></h3>
+<p><span class="en">A straightforward converter plus a set of popular pairs, so you can check a rate without opening a search engine.</span><span class="cn">一个简洁的换算器加上一组常用货币对，让你不用打开搜索引擎就能查汇率。</span></p>
+
+<h2 id="how-to-use-it"><span class="en">How To Use It</span><span class="cn">怎么用</span></h2>
+
+<ol>
+<li><span class="en">Go to <strong>you.piccalc.com</strong>. It detects your browser language and takes you to the matching version.</span><span class="cn">打开 <strong>you.piccalc.com</strong>。它会识别你的浏览器语言，并把你带到对应的版本。</span></li>
+<li><span class="en">Use the language dropdown in the header to switch at any time — the choice is written into the URL, so you can share or bookmark a specific language.</span><span class="cn">随时可用页头的语言下拉菜单切换——选择会写入 URL，因此你可以分享或收藏某个特定语言版本。</span></li>
+<li><span class="en">Pick a section: Oil, Gold, China Fuel or Currency.</span><span class="cn">选择一个板块：原油、黄金、国内油价或货币。</span></li>
+<li><span class="en">Read the current figures; each page shows the value with its unit and the time of the last update.</span><span class="cn">查看当前数据；每个页面都会显示数值、单位以及最后更新时间。</span></li>
+<li><span class="en">For China fuel, select your province to see that region's retail prices for 92/95/98 and diesel.</span><span class="cn">查国内油价时，选择你所在的省份，即可看到该地区 92/95/98 号汽油及柴油的零售价。</span></li>
+</ol>
+<div class="="><span class="en">tip</span><span class="cn"><strong>经常查看的话</strong> 把你关心的那个具体页面加书签（比如 /zh/china-fuel/），而不是收藏首页。这样一点开就直接看到数字，还能少点一次。</span></div>
+
+<h2 id="why-server-rendering-matters"><span class="en">Why Server Rendering Matters</span><span class="cn">服务端渲染为什么重要</span></h2>
+
+<p><span class="en">Most price sites are single-page apps: the HTML arrives nearly empty and JavaScript fetches the numbers afterwards. That works for humans but creates two problems — a visible delay before anything appears, and search engines that may index an empty page.</span><span class="cn">多数价格站都是单页应用：HTML 到达时几乎是空的，数字要等 JavaScript 之后再去抓取。对人类用户能用，但带来两个问题——内容出现前有可见延迟，以及搜索引擎可能收录到一个空页面。</span></p>
+<p><span class="en">PriceScope renders on Cloudflare's edge network before the response is sent. You see numbers on first paint, Google sees the same numbers when it crawls, and the content is delivered from a server close to you rather than from one origin halfway around the world. The practical result is a page that feels instant and that indexes reliably.</span><span class="cn">PriceScope 在响应发送之前就在 Cloudflare 的边缘网络上完成渲染。你在首屏就能看到数字，Google 抓取时看到的是同样的数字，而且内容是从离你近的服务器投递的，而不是来自地球另一端的单一源站。实际结果就是一个感觉极快、且能被可靠收录的页面。</span></p>
+
+<h2 id="free-plan-details"><span class="en">Free Plan Details</span><span class="cn">免费版详情</span></h2>
+<div class="tw"><table><tr><th><span class="en">Registration</span><span class="cn">是否需注册</span></th><td><span class="en">Not required</span><span class="cn">不需要</span></td></tr><tr><th><span class="en">Cost</span><span class="cn">费用</span></th><td><span class="en">Free</span><span class="cn">免费</span></td></tr><tr><th><span class="en">Languages</span><span class="cn">语言</span></th><td><span class="en">English, Chinese, Japanese, Spanish, French, German, Portuguese</span><span class="cn">英语、中文、日语、西班牙语、法语、德语、葡萄牙语</span></td></tr><tr><th><span class="en">Data areas</span><span class="cn">数据板块</span></th><td><span class="en">Crude oil (Brent/WTI), gold, China fuel (31 provinces), currency</span><span class="cn">原油（布伦特/WTI）、黄金、国内油价（31 省）、货币</span></td></tr><tr><th><span class="en">Gold units</span><span class="cn">黄金计价单位</span></th><td><span class="en">USD per troy ounce and CNY per gram</span><span class="cn">美元/金衡盎司 与 元/克</span></td></tr><tr><th><span class="en">Rendering</span><span class="cn">渲染方式</span></th><td><span class="en">Server-side rendered on Cloudflare Workers edge network</span><span class="cn">在 Cloudflare Workers 边缘网络上服务端渲染</span></td></tr><tr><th><span class="en">Device support</span><span class="cn">设备支持</span></th><td><span class="en">Responsive, works on mobile browsers</span><span class="cn">响应式设计，移动浏览器可用</span></td></tr></table></div>
+<p class="note"><span class="en"><strong>Data caveat:</strong> figures are sourced from public market and exchange-rate feeds and are provided for reference. They are not a trading feed and should not be used as the authoritative source for financial decisions. Always confirm against your broker or official pricing before acting.</span><span class="cn">数据说明：数值来源于公开市场与汇率数据源，仅供参考。它不是交易行情源，不应作为财务决策的权威依据。实际操作前请务必向你的券商或官方定价渠道确认。</span></p>
+
+<h2 id="what-works-well"><span class="en">What Works Well</span><span class="cn">好用的地方</span></h2>
+
+<ul>
+<li><span class="en"><strong>Four data types in one place</strong> — oil, gold, China fuel and FX, instead of four separate sites</span><span class="cn">四类数据集中一处——原油、黄金、国内油价与汇率，不用跑四个网站</span></li>
+<li><span class="en"><strong>China fuel coverage is unusually complete</strong> — all 31 provinces with each fuel grade</span><span class="cn">国内油价覆盖异常完整——31 个省、每个油品标号都有</span></li>
+<li><span class="en"><strong>Gold in both units</strong> — no manual troy-ounce-to-gram conversion</span><span class="cn">黄金双单位显示——无需手工做盎司到克的换算</span></li>
+<li><span class="en"><strong>Seven languages with clean URLs</strong> — makes it usable for a genuinely international audience</span><span class="cn">七种语言配干净 URL——对真正的国际受众友好</span></li>
+<li><span class="en"><strong>Fast</strong> — edge rendering means numbers appear immediately</span><span class="cn">速度快——边缘渲染让数字立刻呈现</span></li>
+<li><span class="en"><strong>No sign-up or paywall</strong> — every figure is visible to everyone</span><span class="cn">无需注册、无付费墙——所有数据对所有人可见</span></li>
+</ul>
+
+<h2 id="limitations"><span class="en">Limitations</span><span class="cn">不足之处</span></h2>
+
+<ul>
+<li><span class="en">It is a price <em>reference</em>, not a trading platform — there are no charts, alerts or historical analysis tools</span><span class="cn">它是一个价格<em>参考</em>站，不是交易平台 —— 没有走势图、价格提醒或历史分析工具</span></li>
+<li><span class="en">Prices come from public feeds with their own update cadence, so figures lag live exchange tick data</span><span class="cn">价格来自公开数据源，有其自身的更新节奏，因此数值会滞后于交易所实时行情</span></li>
+<li><span class="en">No historical charts or export options for doing your own trend analysis</span><span class="cn">没有历史图表或导出选项，无法自行做趋势分析</span></li>
+<li><span class="en">Coverage is focused: commodities and FX only, no stocks, crypto or broader market data</span><span class="cn">覆盖范围聚焦：只有大宗商品和外汇，没有股票、加密货币或更广的市场数据</span></li>
+</ul>
+
+<h2 id="who-should-use-it"><span class="en">Who Should Use It</span><span class="cn">适合谁用</span></h2>
+
+<p><span class="en">Drivers in China checking whether fuel is about to move before filling up; anyone buying or selling gold who wants both the international ounce price and the local gram price side by side; travellers and small businesses needing a quick exchange rate; writers, teachers and students who need a quotable current figure for oil or gold; and anyone who has ever typed "oil price today" into a search box and wanted one clean number instead of an ad-heavy page.</span><span class="cn">加油前想确认油价是否要调整的国内车主；想把国际盎司价和本地克价并列查看的黄金买卖者；需要快速查汇率的旅行者和小企业；需要引用当前原油或黄金价格的作者、教师和学生；以及所有曾在搜索框里敲下「今日油价」、只想要一个干净数字而不是满屏广告的人。</span></p>
+
+<h2 id="faq"><span class="en">Frequently Asked Questions</span><span class="cn">常见问题</span></h2>
+<div class="faq"><details><summary><span class="en">Is PriceScope free to use?</span><span class="cn">PriceScope 免费使用吗？</span></summary><p><span class="en">Yes. Every page and all four data sections are free with no registration required.</span><span class="cn">是的。所有页面和四个数据板块都免费，无需注册。</span></p></details><details><summary><span class="en">What is the difference between Brent and WTI?</span><span class="cn">布伦特和 WTI 有什么区别？</span></summary><p><span class="en">Brent is the international benchmark sourced from North Sea crude, and prices most of the world's oil. WTI is the US benchmark delivered at Cushing, Oklahoma, and usually trades slightly below Brent. The gap between the two is watched as a market signal in its own right.</span><span class="cn">布伦特是源自北海原油的国际基准，为全球大部分石油定价。WTI 是在俄克拉荷马州库欣交割的美国基准，通常略低于布伦特。两者的价差本身就被当作一个市场信号来观察。</span></p></details><details><summary><span class="en">Which provinces does the China fuel page cover?</span><span class="cn">国内油价页覆盖哪些省份？</span></summary><p><span class="en">All 31 provincial-level regions, each listing 92, 95 and 98 gasoline plus 0# diesel retail prices.</span><span class="cn">全部 31 个省级行政区，每个都列出 92、95、98 号汽油及 0# 柴油的零售价。</span></p></details><details><summary><span class="en">Can I see gold in yuan per gram?</span><span class="cn">能看按「元/克」计价的黄金吗？</span></summary><p><span class="en">Yes. Gold is shown both as USD per troy ounce (the global convention) and as CNY per gram (what Chinese retail buyers use).</span><span class="cn">是的。黄金同时以美元/金衡盎司（国际惯例）和元/克（中国零售买家习惯）显示。</span></p></details><details><summary><span class="en">How often are prices updated?</span><span class="cn">价格多久更新一次？</span></summary><p><span class="en">Figures are refreshed from public feeds on a frequent schedule, and each page shows the last update time. It is a reference source, not live exchange tick data.</span><span class="cn">数值按较高频率从公开数据源刷新，每个页面都显示最后更新时间。它是参考源，不是交易所实时行情数据。</span></p></details><details><summary><span class="en">What languages are available?</span><span class="cn">支持哪些语言？</span></summary><p><span class="en">Seven: English, Chinese, Japanese, Spanish, French, German and Portuguese. The language appears in the URL, so you can bookmark a specific version.</span><span class="cn">七种：英语、中文、日语、西班牙语、法语、德语和葡萄牙语。语言写在 URL 中，因此你可以收藏某个特定版本。</span></p></details></div><div class="back">
+<a href="https://zook.cc.cd/">&larr; <span class="en">Back to the full tool directory</span><span class="cn">返回工具总目录</span></a>
+<div class="related"><span class="en">Browse more tools:</span><span class="cn">浏览更多工具：</span> <a href="https://zook.cc.cd/tools/epoch-converter.html">EpochConverter</a> <a href="https://zook.cc.cd/tools/uuid-generator.html">UUID Generator</a> <a href="https://zook.cc.cd/tools/jsonlint.html">JSONLint</a> <a href="https://zook.cc.cd/tools/base64-encode.html">Base64 Encode</a> <a href="https://zook.cc.cd/tools/convert-case.html">Convert Case</a></div>
+</div>
+<div class="rel-wrap"><div class="rel-box"><h2><span class="en">More Data & Price Trackers</span><span class="cn">更多数据与价格查询</span></h2><div class="rel-list"><a href="/tools/piccalc.html"><span class="en">PicCalc (PicStudio)</span><span class="cn">PicCalc 图片编辑器</span><small><span class="en">Full review & how to use</span><span class="cn">完整测评与使用教程</span></small></a><a href="/tools/photopea.html"><span class="en">Photopea</span><span class="cn">Photopea 在线 PS</span><small><span class="en">Full review & how to use</span><span class="cn">完整测评与使用教程</span></small></a><a href="/tools/remove-bg.html"><span class="en">Remove.bg</span><span class="cn">Remove.bg 一键抠图</span><small><span class="en">Full review & how to use</span><span class="cn">完整测评与使用教程</span></small></a><a href="/tools/tinypng.html"><span class="en">TinyPNG</span><span class="cn">TinyPNG 图片压缩</span><small><span class="en">Full review & how to use</span><span class="cn">完整测评与使用教程</span></small></a></div></div><div class="rel-box"><h2><span class="en">Related Guides</span><span class="cn">相关对比指南</span></h2><div class="rel-list"><a href="/guides/developer-tools-that-save-time.html"><span class="en">Developer Tools That Save Time</span><span class="cn">省时间的开发者工具</span><small><span class="en">In-depth comparison guide</span><span class="cn">深度对比指南</span></small></a><a href="/guides/ai-tools-for-content-creators.html"><span class="en">AI Tools for Content Creators</span><span class="cn">AI 创作工具横评</span><small><span class="en">In-depth comparison guide</span><span class="cn">深度对比指南</span></small></a></div></div></div><footer>
+&copy; 2026 <span class="en">Useful Web Tools Directory</span><span class="cn">实用在线工具合集</span> &middot;
+<a href="/about.html"><span class="en">About</span><span class="cn">关于</span></a> &middot; <a href="/contact.html"><span class="en">Contact</span><span class="cn">联系</span></a> &middot;
+<a href="/disclaimer.html"><span class="en">Disclaimer</span><span class="cn">免责声明</span></a> &middot; <a href="/privacy.html"><span class="en">Privacy Policy</span><span class="cn">隐私政策</span></a></footer>
+
+<script>
+(function(){
+var b=document.body;
+var e=document.getElementById('swEn'),c=document.getElementById('swCn');
+function set(l){
+  b.className=l;
+  try{localStorage.setItem('wwoklang',l);}catch(x){}
+  if(e&&c){e.classList.toggle('on',l==='lang-en');c.classList.toggle('on',l==='lang-cn');}
+}
+var saved='';try{saved=localStorage.getItem('wwoklang')||'';}catch(x){}
+set(saved==='lang-cn'?'lang-cn':'lang-en');
+if(e)e.onclick=function(){set('lang-en')};
+if(c)c.onclick=function(){set('lang-cn')};
+})();
+</script>
+</body>
+</html>

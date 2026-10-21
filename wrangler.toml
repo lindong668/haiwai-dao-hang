@@ -1,0 +1,23 @@
+# ============================================================
+# 海外导航站（zook.cc.cd）—— Cloudflare Workers + Assets
+#
+# 部署方式一（推荐，用命令行）：
+#   npx wrangler deploy
+#
+# 部署方式二（网页上传，你一直在用的方式）：
+#   CF 控制台 → Workers 和 Pages → 创建 → Workers →
+#   把 public/ 和 src/ 与 wrangler.toml 一起上传（或用 GitHub 连接仓库）
+#   然后在「设置 → 域和路由」里添加自定义域 zook.cc.cd
+#
+# name 必须与 CF 控制台上的 Worker 名字一致
+# ============================================================
+name = "haiwai-dao-hang"
+compatibility_date = "2026-09-01"
+main = "src/index.js"
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+
+# 路由在 CF 控制台配置：Workers → haiwai-dao-hang → 设置 → 域和路由
+# zook.cc.cd/*
