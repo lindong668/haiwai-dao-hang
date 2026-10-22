@@ -43,7 +43,7 @@ export default {
      * 固定返回纯文本，避免被包装成 HTML 导致 Google 无法解析。 */
     if (pathname === '/robots.txt') {
       return new Response(
-        'User-agent: *\nAllow: /\n\nSitemap: https://zook.cc.cd/sitemap.xml\n',
+        'User-agent: Mediapartners-Google\nAllow: /\n\nUser-agent: *\nAllow: /\n\nSitemap: https://zook.cc.cd/sitemap.xml\n',
         {
           status: 200,
           headers: {
