@@ -65,3 +65,11 @@ AdSense         添加站点 https://ss99.ccwu.cc
 
 三个关键文件（robots.txt / sitemap.xml / ads.txt）由 Worker 层直接返回，
 Content-Type 写死，避免 Assets 的 MIME 猜测导致抓取失败。
+
+## C12 变更（2026-10-24）
+1. 修复 index.html 头部残留的旧内联 SVG 图标碎片（导致页面左上角显示 🧰 及乱码字符）
+2. 修复 26 个子页面 </head> 与 <body> 之间游离的旧版面包屑（导致页面顶部出现重复面包屑）
+   - 涉及 tools/*.html（20 个）、guides/*.html（6 个）
+3. 未改动 src/index.js、图标文件、样式与内容
+
+全站复检（31 页）：死链 0、资源缺失 0、调试残留 0、真实广告位 0、页脚声明 31/31、标签配对 0 异常
