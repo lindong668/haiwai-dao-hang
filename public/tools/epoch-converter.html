@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="google-adsense-account" content="ca-pub-8915931557404979">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8915931557404979" crossorigin="anonymous"></script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232563eb'/%3E%3Ctext x='16' y='22' font-size='17' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>EpochConverter: Unix Timestamp to Human Date (and Back)</title>
+<meta name="description" content="Convert Unix timestamps to readable dates and dates back to timestamps, in seconds or milliseconds, across timezones. Free, no registration, includes a live current-timestamp display.">
+<meta name="keywords" content="epoch converter, unix timestamp converter, timestamp to date, date to timestamp, epoch time, unix time now">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<link rel="canonical" href="https://ss99.ccwu.cc/tools/epoch-converter.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ss99.ccwu.cc/tools/epoch-converter.html">
+<meta property="og:title" content="EpochConverter: Unix Timestamp to Human Date (and Back)">
+<meta property="og:description" content="Convert Unix timestamps to readable dates and dates back to timestamps, in seconds or milliseconds, across timezones. Free, no registration, includes a live current-timestamp display.">
+<meta property="og:site_name" content="Useful Web Tools Directory">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="EpochConverter: Unix Timestamp to Human Date (and Back)">
+<meta name="twitter:description" content="Convert Unix timestamps to readable dates and dates back to timestamps, in seconds or milliseconds, across timezones. Free, no registration, includes a live current-timestamp display.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--blue:#2563eb;--deep:#1e40af;--navy:#1e3a8a;--ink:#1e293b;--gray:#475569;--line:#e2e8f0;--bg:#f8fafc;--card:#fff}
+html{scroll-behavior:smooth}
+body{line-height:1.75;color:var(--ink);background:var(--bg);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+max-width:820px;margin:0 auto;padding:0 20px 70px;font-size:16.5px}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+/* 顶栏 */
+.topbar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;
+padding:14px 0;border-bottom:1px solid var(--line);margin-bottom:8px;font-size:14px}
+.brand{font-weight:700;color:var(--blue);font-size:16px;letter-spacing:-.2px}
+.topbar nav a{margin-left:12px;color:var(--gray)}
+/* 面包屑 */
+.crumb{font-size:13px;color:#94a3b8;margin:14px 0 18px}
+.crumb a{color:#64748b}
+/* 标题区 */
+h1{color:var(--navy);font-size:31px;line-height:1.3;margin-bottom:14px;letter-spacing:-.5px}
+.meta{font-size:13.5px;color:#94a3b8;margin-bottom:18px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.meta span{margin-right:16px}
+.lede{color:#334155;font-size:17.5px;line-height:1.7;margin:0 0 24px;padding:18px 20px;
+background:linear-gradient(135deg,#eff6ff,#f0f9ff);border-left:4px solid var(--blue);border-radius:0 8px 8px 0}
+/* 目录 */
+.toc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 20px;margin:0 0 28px;font-size:15px}
+.toc b{display:block;color:var(--navy);margin-bottom:8px;font-size:14px;text-transform:uppercase;letter-spacing:.6px}
+.toc a{display:inline-block;margin:4px 18px 4px 0;color:var(--blue)}
+/* 正文 */
+h2{color:var(--navy);font-size:22px;margin:38px 0 14px;padding-left:12px;border-left:4px solid var(--blue);letter-spacing:-.3px}
+h3{color:var(--deep);font-size:17.5px;margin:24px 0 10px}
+p{margin-bottom:15px}
+ul,ol{margin:0 0 16px 24px}
+li{margin-bottom:9px}
+strong{color:var(--navy)}
+/* 表格 */
+.tw{overflow-x:auto;margin:16px 0 22px}
+table{width:100%;border-collapse:collapse;background:var(--card);font-size:15px;
+border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(15,23,42,.06)}
+th,td{border:1px solid var(--line);padding:11px 14px;text-align:left;vertical-align:top}
+th{background:#eff6ff;color:var(--navy);width:30%;font-weight:600}
+tr:nth-child(even) td{background:#fcfdff}
+/* CTA */
+.cta{display:inline-block;background:var(--blue);color:#fff!important;padding:13px 26px;border-radius:8px;
+font-weight:700;margin:6px 10px 6px 0;box-shadow:0 2px 6px rgba(37,99,235,.25);transition:.15s}
+.cta:hover{background:#1d4ed8;text-decoration:none;transform:translateY(-1px)}
+.cta.ghost{background:#fff;color:var(--blue)!important;border:1px solid var(--blue);box-shadow:none}
+.cta.ghost:hover{background:#eff6ff}
+/* 提示框 */
+.note{background:#fffbeb;border:1px solid #fcd34d;border-radius:8px;padding:14px 18px;margin:20px 0;font-size:14.5px;color:#78350f}
+.tip{background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:14px 18px;margin:20px 0;font-size:14.5px;color:#14532d}
+.info{background:#eff6ff;border:1px solid #93c5fd;border-radius:8px;padding:14px 18px;margin:20px 0;font-size:14.5px;color:var(--navy)}
+.note b,.tip b,.info b{display:block;margin-bottom:4px}
+/* 优缺点 */
+.proscons{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:18px 0 24px}
+@media(max-width:620px){.proscons{grid-template-columns:1fr}}
+.pc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.pc h3{margin:0 0 10px;font-size:16px}
+.pc.ok{border-top:3px solid #22c55e}
+.pc.no{border-top:3px solid #f59e0b}
+.pc ul{margin:0 0 0 20px;font-size:15px}
+/* FAQ */
+.faq{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:6px 20px 16px;margin:18px 0 26px}
+.faq details{border-bottom:1px solid #f1f5f9;padding:14px 0}
+.faq details:last-child{border-bottom:none}
+.faq summary{cursor:pointer;font-weight:600;color:var(--deep);font-size:16px;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:before{content:"+";display:inline-block;width:18px;color:var(--blue);font-weight:700}
+.faq details[open] summary:before{content:"\2212"}
+.faq details p{margin:10px 0 2px 20px;font-size:15.5px;color:#334155}
+/* 底部 */
+.back{margin-top:44px;padding-top:20px;border-top:1px solid var(--line);font-size:14.5px}
+.related{margin-top:14px;font-size:14.5px;line-height:2.2}
+.related a{margin-right:14px;display:inline-block;background:#fff;border:1px solid var(--line);
+padding:5px 12px;border-radius:20px;font-size:14px}
+.related a:hover{background:#eff6ff;border-color:var(--blue);text-decoration:none}
+footer{margin-top:30px;text-align:center;color:#94a3b8;font-size:13px;line-height:2}
+footer a{color:#64748b}
+
+/* 双语切换 */
+body{ }
+.lsw{display:inline-flex;gap:4px;vertical-align:middle;margin-left:10px}
+.lsw button{border:1px solid var(--line);background:#fff;color:var(--gray);
+font-size:12px;padding:3px 9px;border-radius:5px;cursor:pointer;line-height:1.5}
+.lsw button.on{background:var(--blue);color:#fff;border-color:var(--blue)}
+.lang-en .cn{display:none!important}
+.lang-cn .en{display:none!important}
+.ad-disclosure{margin-top:10px;font-size:12.5px;color:#64748b;line-height:1.7}
+.ad-disclosure .cn{display:none}
+body.lang-cn .ad-disclosure .en{display:none}
+body.lang-cn .ad-disclosure .cn{display:inline}
+.btn{border:1px solid var(--blue);background:#fff;color:var(--blue);padding:4px 11px;border-radius:20px;cursor:pointer;font-size:13px}.btn.on{background:var(--blue);color:#fff}
+</style>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://ss99.ccwu.cc/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://ss99.ccwu.cc/#img-media"}, {"@type": "ListItem", "position": 3, "name": "EpochConverter: Unix Timestamp to Human Date (and Back)", "item": "https://ss99.ccwu.cc/tools/epoch-converter.html"}]}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "WebPage", "url": "https://ss99.ccwu.cc/tools/epoch-converter.html", "name": "EpochConverter: Unix Timestamp to Human Date (and Back)", "description": "Convert Unix timestamps to readable dates and dates back to timestamps, in seconds or milliseconds, across timezones. Free, no registration, includes a live current-timestamp display.", "inLanguage": "en", "isPartOf": {"@type": "WebSite", "url": "https://ss99.ccwu.cc/", "name": "Useful Web Tools Directory"}}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is EpochConverter free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, both conversion directions are free with no registration."}}, {"@type": "Question", "name": "What is a Unix timestamp?", "acceptedAnswer": {"@type": "Answer", "text": "The number of seconds elapsed since 1 January 1970 UTC. It is the standard way computers represent a point in time."}}, {"@type": "Question", "name": "Seconds or milliseconds — which do I have?", "acceptedAnswer": {"@type": "Answer", "text": "A 10-digit value is usually seconds; 13 digits usually means milliseconds. Getting this wrong produces dates in 1970 or far in the future."}}, {"@type": "Question", "name": "Can I convert a date into a timestamp?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, enter a date and time and the tool returns the corresponding timestamp."}}, {"@type": "Question", "name": "Does it handle timezones?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, you can view conversions in UTC or your local timezone."}}, {"@type": "Question", "name": "Why do I see 1970?", "acceptedAnswer": {"@type": "Answer", "text": "Almost always because a milliseconds value was interpreted as seconds, or the value is zero or negative."}}]}
+</script>
+<style>
+.rel-wrap{max-width:1100px;margin:40px auto 0;padding:0 20px}
+.rel-box{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:22px 24px;margin-bottom:20px}
+.rel-box h2{font-size:18px;color:#1e3a8a;margin-bottom:14px;border-left:4px solid #2563eb;padding-left:10px}
+.rel-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.rel-list a{display:block;padding:12px 14px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;text-decoration:none;color:#1d4ed8;font-weight:600;font-size:15px;transition:.2s}
+.rel-list a:hover{background:#eff6ff;border-color:#2563eb}
+.rel-list a small{display:block;margin-top:4px;color:#64748b;font-weight:400;font-size:13px}
+.crumb{max-width:1100px;margin:0 auto;padding:14px 20px 0;font-size:13px;color:#64748b}
+.crumb a{color:#2563eb;text-decoration:none}
+.crumb a:hover{text-decoration:underline}
+</style>
+</head>
+<nav class="crumb"><a href="/"><span class="en">Home</span><span class="cn">首页</span></a> &rsaquo; <span class="en">Developer Utilities</span><span class="cn">开发者工具</span> &rsaquo; <span class="en">EpochConverter</span><span class="cn">Unix 时间戳转换</span></nav><body class="lang-en">
+<div class="topbar">
+<a class="brand" href="https://ss99.ccwu.cc/">&larr; <span class="en">Useful Web Tools Directory</span><span class="cn">实用在线工具合集</span></a>
+<nav><a href="https://ss99.ccwu.cc/about.html"><span class="en">About</span><span class="cn">关于</span></a> <a href="https://ss99.ccwu.cc/contact.html"><span class="en">Contact</span><span class="cn">联系</span></a> <a href="https://ss99.ccwu.cc/disclaimer.html"><span class="en">Disclaimer</span><span class="cn">免责声明</span></a> <a href="https://ss99.ccwu.cc/privacy.html"><span class="en">Privacy</span><span class="cn">隐私</span></a><button class="btn on" id="swEn">EN</button><button class="btn" id="swCn">中文</button></nav>
+</div>
+<div class="crumb"><a href="https://ss99.ccwu.cc/"><span class="en">Home</span><span class="cn">首页</span></a> &rsaquo; <span class="en">Tools</span><span class="cn">工具</span> &rsaquo; <span class="en">Developer</span><span class="cn">开发者</span> Utilities</div>
+<h1>EpochConverter</h1>
+<div class="meta"><span><span class="en">Updated Oct 2026</span><span class="cn">2026年10月更新</span></span><span>Category: Developer Utilities</span><span><span class="en">Hands-on tested</span><span class="cn">实测收录</span></span></div>
+<p class="lede"><span class="en">Unix timestamps are how computers store time, and they are completely unreadable to humans. EpochConverter translates between the two instantly, in either direction.</span><span class="cn">Unix 时间戳是计算机存储时间的方式，但人类完全看不懂。EpochConverter 能在两者之间即时互转。</span></p>
+<div class="toc"><b><span class="en">On this page</span><span class="cn">本页目录</span></b><a href="#what-it-is"><span class="en">What It Is</span><span class="cn">这是什么</span></a> <a href="#how-to-use-it"><span class="en">How To Use It</span><span class="cn">怎么用</span></a> <a href="#free-plan-details"><span class="en">Free Plan Details</span><span class="cn">免费版详情</span></a> <a href="#strengths-and-limitations"><span class="en">Strengths And Limitations</span><span class="cn">优点与不足</span></a> <a href="#who-should-use-it"><span class="en">Who Should Use It</span><span class="cn">适合谁用</span></a> <a href="#faq"><span class="en">FAQ</span><span class="cn">常见问题</span></a></div>
+<h2 id="what-it-is"><span class="en">What It Is</span><span class="cn">这是什么</span></h2>
+<p><span class="en">A Unix timestamp counts seconds since 1 January 1970 UTC. It is compact, unambiguous across timezones and therefore everywhere in logs, databases and APIs — and completely opaque when you are trying to work out when something happened.</span><span class="cn">Unix 时间戳记录的是自 1970 年 1 月 1 日 UTC 起经过的秒数。它紧凑、跨时区无歧义，因此日志、数据库和 API 里到处都是——但当你想搞清楚某件事是什么时候发生的时，它又完全看不出所以然。</span></p>
+<p><span class="en">This converter handles both directions. Paste a timestamp to get a human date, or enter a date to get its timestamp. It is careful about the <strong>seconds versus milliseconds</strong> distinction, which is the single most common source of confusion: JavaScript's <code>Date.now()</code> returns milliseconds while most Unix tooling uses seconds, and mixing them produces dates in 1970 or the year 50000.</span><span class="cn">这个转换器双向都支持。粘贴时间戳得到可读日期，或输入日期得到时间戳。它会明确区分秒和毫秒——这是最容易搞混的地方：JavaScript 的 Date.now() 返回毫秒，而多数 Unix 工具用秒，两者混用会算出 1970 年或 50000 年这种离谱结果。</span></p>
+<p><span class="en">A live current-timestamp display is shown on the page, which is handy when you need "now" in epoch form.</span><span class="cn">页面上有一个实时当前时间戳显示，当你需要「此刻」的 epoch 值时会很方便。</span></p><p><a class="cta" href="https://www.epochconverter.com/" target="_blank" rel="noopener nofollow"><span class="en">Open EpochConverter &rarr;</span><span class="cn">打开 EpochConverter &rarr;</span></a></p>
+<h2 id="how-to-use-it"><span class="en">How To Use It</span><span class="cn">怎么用</span></h2>
+<ol><li><span class="en"><span class="en">Go to epochconverter.com</span><span class="cn">打开 epochconverter.com</span></span><span class="cn">打开 epochconverter.com。</span></li><li><span class="en">Paste a timestamp into the converter, or use the current-timestamp display at the top.</span><span class="cn">把时间戳粘进转换器，或直接使用页面顶部的当前时间戳。</span></li><li><span class="en">Check whether the value is in seconds or milliseconds and select accordingly.</span><span class="cn">确认数值是秒还是毫秒，并做出相应选择。</span></li><li><span class="en">Read the converted date, and switch timezone if you need local rather than UTC.</span><span class="cn">查看转换后的日期；如果需要本地时间而非 UTC，可切换时区。</span></li><li><span class="en">To go the other way, enter a date and time and read off the timestamp.</span><span class="cn">要反向转换，输入日期和时间即可读出对应的时间戳。</span></li></ol><div class="="><span class="en">tip</span><span class="cn"><strong>实用提示</strong> 如果转换结果是 1970 年，或者是几十年后的日期，先检查单位。13 位几乎肯定是毫秒，10 位是秒。这一条检查能解决大部分时间戳困惑。</span></div>
+<h2 id="free-plan-details"><span class="en">Free Plan Details</span><span class="cn">免费版详情</span></h2>
+<div class="tw"><table><tr><th><span class="en">Registration</span><span class="cn">是否需注册</span></th><td><span class="en">Not required</span><span class="cn">不需要</span></td></tr><tr><th><span class="en">Watermark</span><span class="cn">是否有水印</span></th><td><span class="en">None</span><span class="cn">无</span></td></tr><tr><th><span class="en">Cost</span><span class="cn">费用</span></th><td><span class="en">Free</span><span class="cn">免费</span></td></tr><tr><th><span class="en">Directions</span><span class="cn">支持方向</span></th><td><span class="en">Timestamp to date, and date to timestamp</span><span class="cn">时间戳转日期，日期转时间戳</span></td></tr><tr><th><span class="en">Units</span><span class="cn">单位</span></th><td>Seconds and milliseconds</td></tr><tr><th><span class="en">Timezones</span><span class="cn">时区</span></th><td>UTC and local conversion</td></tr><tr><th><span class="en">Extras</span><span class="cn">额外功能</span></th><td><span class="en">Live current timestamp, timezone list</span><span class="cn">实时当前时间戳、时区列表</span></td></tr><tr><th><span class="en">Processing</span><span class="cn">处理方式</span></th><td><span class="en">Browser-side</span><span class="cn">浏览器端</span></td></tr></table></div><p class="note"><span class="en"><strong>Check before you rely on it:</strong> free quotas, file limits and pricing change frequently. Confirm current terms on the official site before depending on it for regular work.</span><span class="cn">使用前请先核实：免费额度、文件限制与定价经常变动。若打算长期依赖某工具，请以官方网站当前说明为准.</span></p>
+<h2 id="strengths-and-limitations"><span class="en">Strengths And Limitations</span><span class="cn">优点与不足</span></h2>
+<div class="proscons"><div class="pc ok"><h3><span class="en">What works well</span><span class="cn">好用的地方</span></h3><ul><li><span class="en">Converts in both directions</span><span class="cn">双向都能转换</span></li><li><span class="en">Explicitly handles the seconds versus milliseconds ambiguity</span><span class="cn">明确处理秒与毫秒的歧义</span></li><li><span class="en">Live current timestamp always visible</span><span class="cn">实时当前时间戳常驻可见</span></li><li><span class="en">Timezone aware, not just UTC</span><span class="cn">支持时区，不只是 UTC</span></li><li>No registration</li></ul></div><div class="pc no"><h3><span class="en">Limitations</span><span class="cn">不足之处</span></h3><ul><li><span class="en">No batch conversion of many timestamps at once</span><span class="cn">不支持一次性批量转换多个时间戳</span></li><li>Interface is utilitarian</li><li><span class="en">No duration or time-difference calculator</span><span class="cn">没有时长或时间差计算功能</span></li><li><span class="en">Does not cover non-Unix epoch systems</span><span class="cn">不支持非 Unix 的纪元系统</span></li></ul></div></div>
+<h2 id="who-should-use-it"><span class="en">Who Should Use It</span><span class="cn">适合谁用</span></h2>
+<p><span class="en">Developers reading logs and API responses, database administrators, and anyone debugging why a timestamp looks wrong. If you have ever seen 1700000000 and wondered what date that was, this is the tool.</span><span class="cn">要读日志和 API 返回的开发者、数据库管理员，以及任何在排查「时间戳怎么不对」的人。如果你曾经看到 1700000000 然后想知道那是哪天，用这个就对了。</span></p>
+<h2 id="faq"><span class="en">Frequently Asked Questions</span><span class="cn">常见问题</span></h2>
+<div class="faq"><details><summary><span class="en">Is EpochConverter free?</span><span class="cn">EpochConverter 免费吗？</span></summary><p><span class="en">Yes, both conversion directions are free with no registration.</span><span class="cn">是的，双向转换都免费，无需注册。</span></p></details><details><summary><span class="en">What is a Unix timestamp?</span><span class="cn">什么是 Unix 时间戳？</span></summary><p><span class="en">The number of seconds elapsed since 1 January 1970 UTC. It is the standard way computers represent a point in time.</span><span class="cn">自 1970 年 1 月 1 日 UTC 起经过的秒数。这是计算机表示某个时间点的标准方式。</span></p></details><details><summary><span class="en">Seconds or milliseconds — which do I have?</span><span class="cn">我手上的时间戳是秒还是毫秒？</span></summary><p><span class="en">A 10-digit value is usually seconds; 13 digits usually means milliseconds. Getting this wrong produces dates in 1970 or far in the future.</span><span class="cn">10 位数通常是秒，13 位数通常表示毫秒。搞错的话就会算出 1970 年或非常遥远的未来。</span></p></details><details><summary><span class="en">Can I convert a date into a timestamp?</span><span class="cn">能把日期转成时间戳吗？</span></summary><p><span class="en">Yes, enter a date and time and the tool returns the corresponding timestamp.</span><span class="cn">可以，输入日期和时间，工具就返回对应的时间戳。</span></p></details><details><summary><span class="en">Does it handle timezones?</span><span class="cn">支持时区吗？</span></summary><p><span class="en">Yes, you can view conversions in UTC or your local timezone.</span><span class="cn">可以，你可以查看 UTC 或本地时区下的转换结果。</span></p></details><details><summary><span class="en">Why do I see 1970?</span><span class="cn">为什么我看到 1970 年？</span></summary><p><span class="en">Almost always because a milliseconds value was interpreted as seconds, or the value is zero or negative.</span><span class="cn">几乎总是因为毫秒值被当成了秒，或者数值是零或负数。</span></p></details></div><div class="back">
+<a href="https://ss99.ccwu.cc/">&larr; <span class="en">Back to the full tool directory</span><span class="cn">返回工具总目录</span></a>
+<div class="related"><span class="en">Browse more tools:</span><span class="cn">浏览更多工具：</span> <a href="https://ss99.ccwu.cc/tools/jsonlint.html">JSONLint</a> <a href="https://ss99.ccwu.cc/tools/base64-encode.html">Base64 Encode</a> <a href="https://ss99.ccwu.cc/tools/uuid-generator.html">UUID Generator</a> <a href="https://ss99.ccwu.cc/tools/pricescope.html">PriceScope</a> <a href="https://ss99.ccwu.cc/tools/regex101.html">Regex101</a></div>
+</div>
+<div class="rel-wrap"><div class="rel-box"><h2><span class="en">More Developer Utilities</span><span class="cn">更多开发者工具</span></h2><div class="rel-list"><a href="/tools/jsonlint.html"><span class="en">JSONLint</span><span class="cn">JSONLint 校验格式化</span><small><span class="en">Full review & how to use</span><span class="cn">完整测评与使用教程</span></small></a><a href="/tools/base64-encode.html"><span class="en">Base64 Encode / Decode</span><span class="cn">Base64 编解码</span><small><span class="en">Full review & how to use</span><span class="cn">完整测评与使用教程</span></small></a><a href="/tools/regex101.html"><span class="en">Regex101</span><span class="cn">Regex101 正则测试</span><small><span class="en">Full review & how to use</span><span class="cn">完整测评与使用教程</span></small></a><a href="/tools/uuid-generator.html"><span class="en">UUID Generator</span><span class="cn">UUID 生成器</span><small><span class="en">Full review & how to use</span><span class="cn">完整测评与使用教程</span></small></a></div></div><div class="rel-box"><h2><span class="en">Related Guides</span><span class="cn">相关对比指南</span></h2><div class="rel-list"><a href="/guides/developer-tools-that-save-time.html"><span class="en">Developer Tools That Save Time</span><span class="cn">省时间的开发者工具</span><small><span class="en">In-depth comparison guide</span><span class="cn">深度对比指南</span></small></a><a href="/guides/online-pdf-tools-compared.html"><span class="en">Online PDF Tools Compared</span><span class="cn">在线 PDF 工具对比</span><small><span class="en">In-depth comparison guide</span><span class="cn">深度对比指南</span></small></a></div></div></div>
+<footer>
+&copy; 2026 <span class="en">Useful Web Tools Directory</span><span class="cn">实用在线工具合集</span> <div class="ad-disclosure"><span class="en">This site contains advertisements. Ads do not influence our tool recommendations or reviews.</span><span class="cn">本站包含广告，广告不影响我们的工具推荐与测评结论。</span></div> &middot;
+<a href="/about.html"><span class="en">About</span><span class="cn">关于</span></a> &middot; <a href="/contact.html"><span class="en">Contact</span><span class="cn">联系</span></a> &middot;
+<a href="/disclaimer.html"><span class="en">Disclaimer</span><span class="cn">免责声明</span></a> &middot; <a href="/privacy.html"><span class="en">Privacy Policy</span><span class="cn">隐私政策</span></a>
+<br><span class="en">Email: <a href="mailto:juju089@qq.com">juju089@qq.com</a></span><span class="cn">邮箱：<a href="mailto:juju089@qq.com">juju089@qq.com</a></span></footer>
+
+<script>
+(function(){
+var b=document.body;
+var e=document.getElementById('swEn'),c=document.getElementById('swCn');
+function set(l){
+  b.className=l;
+  document.documentElement.lang=(l==='lang-cn')?'zh-CN':'en';
+  try{localStorage.setItem('ss99lang',l);}catch(x){}
+  if(e&&c){e.classList.toggle('on',l==='lang-en');c.classList.toggle('on',l==='lang-cn');}
+}
+var saved='';try{saved=localStorage.getItem('ss99lang')||'';}catch(x){}
+set(saved==='lang-cn'?'lang-cn':'lang-en');
+if(e)e.onclick=function(){set('lang-en')};
+if(c)c.onclick=function(){set('lang-cn')};
+})();
+</script>
+</body>
+</html>
