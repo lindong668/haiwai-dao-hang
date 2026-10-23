@@ -73,3 +73,15 @@ Content-Type 写死，避免 Assets 的 MIME 猜测导致抓取失败。
 3. 未改动 src/index.js、图标文件、样式与内容
 
 全站复检（31 页）：死链 0、资源缺失 0、调试残留 0、真实广告位 0、页脚声明 31/31、标签配对 0 异常
+
+## C13 变更（2026-10-24）— 修复 Workers Builds 预览构建红叉
+
+**根因**：CF 的 Workers Builds 对同一次提交跑两套构建——
+生产 `wrangler deploy` 成功（绿），预览 `wrangler preview` 要求
+配置中存在 `[previews]` 块，缺失即失败（GitHub 上红叉）。
+与 2号 A17、5号 D16 同源。
+
+**本站情况**：wrangler.toml 无 vars，按 CF 官方说明
+（`The block can be empty`）补空 `[previews]` 块即可。
+
+**部署**：无增删 → 覆盖上传，实际只需替换 wrangler.toml。
