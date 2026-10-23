@@ -70,10 +70,21 @@ export default {
       });
     }
 
-    // 无扩展名路径补 .html（如 /about → /about.html），301 转移权重
+    /* ★ 无扩展名路径补 .html（如 /about → /about.html），301 转移权重
+     *
+     * ⚠️ 只对 GET/HEAD 做补后缀探测。
+     * 原因：new Request(url, request) 会复用原请求的 body 流，
+     * 之后再 env.ASSETS.fetch(request) 就会抛
+     *   "Cannot reconstruct a Request with a used body."
+     * （日志里 POST /wp-json/batch/v1 这类扫描器的 error 就是这么来的。）
+     * 用 request.clone() 取一份干净的 body，避免污染后续主请求。
+     */
     const noExt = !/\.[a-zA-Z0-9]+$/.test(pathname);
-    if (noExt && pathname !== '/' && !pathname.endsWith('/')) {
-      const probe = await env.ASSETS.fetch(new Request(url.origin + pathname + '.html', request));
+    const isNav = request.method === 'GET' || request.method === 'HEAD';
+    if (noExt && isNav && pathname !== '/' && !pathname.endsWith('/')) {
+      const probe = await env.ASSETS.fetch(
+        new Request(url.origin + pathname + '.html', request.clone())
+      );
       if (probe.status === 200) {
         return Response.redirect(url.origin + pathname + '.html' + url.search, 301);
       }
