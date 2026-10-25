@@ -54,14 +54,29 @@ export default {
       );
     }
 
-    /* ★ sitemap.xml 硬拦截（本次收录问题的重点）
-     * Google 要求 application/xml，且内容必须是合法 XML。
-     * 原先静态返回时被判「类型未知、0 个网址」，这里直接由 Worker
-     * 读取静态资源后强制改写 Content-Type 再吐出，确保万无一失。 */
+    /* ★ sitemap.xml 硬拦截（C14 重写 —— 不再依赖静态资源）
+     *
+     * 【为什么改】
+     *   旧写法用 env.ASSETS.fetch() 去读 public/sitemap.xml。
+     *   对照本站其他两个 SEO 文件：
+     *     ads.txt     → Worker 硬编码字符串 → AdSense 抓到「已授权」
+     *     robots.txt  → Worker 硬编码字符串 → Google 正常读取
+     *     sitemap.xml → 读静态文件          → GSC「无法抓取」
+     *   唯一失败项 = 唯一依赖静态文件的项，相关性 100%。
+     *
+     * 【失效机制】静态文件若未真正部署（404），src.text() 会拿到
+     *   404 错误页的 HTML，再被贴上 application/xml 的 Content-Type
+     *   吐给 Google —— 标着 XML 的 HTML —— 解析失败 —— 报「无法抓取」。
+     *   站点本身能正常访问，所以「手动能打开、爬虫抓不到」并不矛盾。
+     *
+     * 【修法】照抄 ads.txt 的成功做法：内容直接内联在 Worker 里，
+     *   不读 ASSETS、不依赖上传、不受边缘缓存影响。
+     *   内联体积 5162 字符，完全可控。
+     */
+    const SITEMAP_XML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n<url>\n<loc>https://ss99.ccwu.cc/</loc>\n<lastmod>2026-10-20</lastmod>\n<changefreq>daily</changefreq>\n<priority>1.0</priority>\n</url>\n<url>\n<loc>https://ss99.ccwu.cc/tools/piccalc.html</loc>\n<lastmod>2026-10-20</lastmod>\n<changefreq>monthly</changefreq>\n<priority>1.0</priority>\n</url>\n<url>\n<loc>https://ss99.ccwu.cc/tools/pricescope.html</loc>\n<lastmod>2026-10-20</lastmod>\n<changefreq>monthly</changefreq>\n<priority>1.0</priority>\n</url>\n<url>\n<loc>https://ss99.ccwu.cc/tools/photopea.html</loc>\n<lastmod>2026-10-20</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.9</priority>\n</url>\n<url>\n<loc>https://ss99.ccwu.cc/tools/remove-bg.html</loc>\n<lastmod>2026-10-20</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.9</priority>\n</url>\n<url>\n<loc>https://ss99.ccwu.cc/tools/tinypng.html</loc>\n<lastmod>2026-10-20</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.9</priority>\n</url>\n<url>\n<loc>https://ss99.ccwu.cc/tools/convertio.html</loc>\n<lastmod>2026-10-20</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.9</priority>\n</url>\n<url>\n<loc>https://ss99.ccwu.cc/tools/favicon-io.html</loc>\n<lastmod>2026-10-20</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://ss99.ccwu.cc/tools/firefly.html</loc>\n<lastmod>2026-10-20</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.9</priority>\n</url>\n<url>\n<loc>https://ss99.ccwu.cc/tools/chatpdf.html</loc>\n<lastmod>2026-10-20</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.9</priority>\n</url>\n<url>\n<loc>https://ss99.ccwu.cc/tools/paraphraser.html</loc>\n<lastmod>2026-10-20</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://ss99.ccwu.cc/tools/jsonlint.html</loc>\n<lastmod>2026-10-20</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://ss99.ccwu.cc/tools/base64-encode.html</loc>\n<lastmod>2026-10-20</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://ss99.ccwu.cc/tools/epoch-converter.html</loc>\n<lastmod>2026-10-20</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://ss99.ccwu.cc/tools/regex101.html</loc>\n<lastmod>2026-10-20</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.9</priority>\n</url>\n<url>\n<loc>https://ss99.ccwu.cc/tools/uuid-generator.html</loc>\n<lastmod>2026-10-20</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://ss99.ccwu.cc/tools/convert-case.html</loc>\n<lastmod>2026-10-20</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.7</priority>\n</url>\n<url>\n<loc>https://ss99.ccwu.cc/tools/smallpdf.html</loc>\n<lastmod>2026-10-20</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.9</priority>\n</url>\n<url>\n<loc>https://ss99.ccwu.cc/tools/ilovepdf.html</loc>\n<lastmod>2026-10-20</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.9</priority>\n</url>\n<url>\n<loc>https://ss99.ccwu.cc/tools/pdf24.html</loc>\n<lastmod>2026-10-20</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.9</priority>\n</url>\n<url>\n<loc>https://ss99.ccwu.cc/tools/cloudconvert.html</loc>\n<lastmod>2026-10-20</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://ss99.ccwu.cc/guides/best-free-background-removers.html</loc>\n<lastmod>2026-10-20</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.9</priority>\n</url>\n<url>\n<loc>https://ss99.ccwu.cc/guides/compress-images-without-losing-quality.html</loc>\n<lastmod>2026-10-20</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.9</priority>\n</url>\n<url>\n<loc>https://ss99.ccwu.cc/guides/online-pdf-tools-compared.html</loc>\n<lastmod>2026-10-20</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.9</priority>\n</url>\n<url>\n<loc>https://ss99.ccwu.cc/guides/free-photoshop-alternatives.html</loc>\n<lastmod>2026-10-20</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://ss99.ccwu.cc/guides/developer-tools-that-save-time.html</loc>\n<lastmod>2026-10-20</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://ss99.ccwu.cc/guides/ai-tools-for-content-creators.html</loc>\n<lastmod>2026-10-20</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://ss99.ccwu.cc/about.html</loc>\n<lastmod>2026-10-20</lastmod>\n<changefreq>yearly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://ss99.ccwu.cc/contact.html</loc>\n<lastmod>2026-10-20</lastmod>\n<changefreq>yearly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://ss99.ccwu.cc/disclaimer.html</loc>\n<lastmod>2026-10-20</lastmod>\n<changefreq>yearly</changefreq>\n<priority>0.6</priority>\n</url>\n<url>\n<loc>https://ss99.ccwu.cc/privacy.html</loc>\n<lastmod>2026-10-20</lastmod>\n<changefreq>yearly</changefreq>\n<priority>0.6</priority>\n</url>\n</urlset>\n";
+
     if (pathname === '/sitemap.xml') {
-      const src = await env.ASSETS.fetch(new Request(url.origin + '/sitemap.xml', request));
-      const body = await src.text();
-      return new Response(body, {
+      return new Response(SITEMAP_XML, {
         status: 200,
         headers: {
           'content-type': 'application/xml; charset=utf-8',
