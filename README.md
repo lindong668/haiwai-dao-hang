@@ -1,10 +1,10 @@
-# 海外导航站（ss99.ccwu.cc）部署说明
+# 海外导航站（yok.us.ci）部署说明
 
 ## 站点信息
 
 | 项 | 值 |
 |---|---|
-| 域名 | https://ss99.ccwu.cc |
+| 域名 | https://yok.us.ci |
 | Worker 名称 | `haiwai-dao-hang` |
 | 部署形态 | Cloudflare Workers + Assets |
 | 入口 | `src/index.js` |
@@ -22,8 +22,8 @@ public/            静态页面（实际生效）
   ├ contact.html            联系方式
   ├ privacy.html            隐私政策
   ├ disclaimer.html         免责声明
-  ├ robots.txt              Sitemap 指向 ss99.ccwu.cc
-  ├ sitemap.xml             31 条 URL，全部为 ss99.ccwu.cc
+  ├ robots.txt              Sitemap 指向 yok.us.ci
+  ├ sitemap.xml             31 条 URL，全部为 yok.us.ci
   ├ ads.txt                 AdSense 授权文件
   ├ google6474e28bb6098302.html   Google 站点验证文件
   ├ guides/                 6 篇指南文章
@@ -42,7 +42,7 @@ npx wrangler deploy
 
 1. CF 控制台 → Workers 和 Pages → 创建 → Workers
 2. 上传 `public/`、`src/`、`wrangler.toml`（或用 GitHub 连接本仓库）
-3. **设置 → 域和路由** → 添加自定义域 `ss99.ccwu.cc/*`
+3. **设置 → 域和路由** → 添加自定义域 `yok.us.ci/*`
 
 > ⚠️ `wrangler.toml` 里 `[assets] directory = "./public"` 已写死，
 > 只有 `public/` 下的文件会生效。**不要往仓库根目录放 HTML 文件**，
@@ -50,16 +50,16 @@ npx wrangler deploy
 
 ## 域名变更记录
 
-- **2026-10-23**：由 `zook.cc.cd` 更换为 `ss99.ccwu.cc`（原后缀不可用）
+- **2026-10-23**：由 `zook.cc.cd` 更换为 `yok.us.ci`（原后缀不可用）
 - 全站 586 处域名引用已同步替换（含 sitemap、robots、canonical、内链）
-- localStorage 键名 `zooklang` → `ss99lang`（27 个文件）
+- localStorage 键名 `zooklang` → `yoklang`（27 个文件）
 - 根目录 8 个混入的旧房贷站文件已删除
 
 ## Google / AdSense 提交
 
 ```
-Search Console  提交 https://ss99.ccwu.cc/sitemap.xml
-AdSense         添加站点 https://ss99.ccwu.cc
+Search Console  提交 https://yok.us.ci/sitemap.xml
+AdSense         添加站点 https://yok.us.ci
                 ads.txt 已就位：pub-8915931557404979
 ```
 

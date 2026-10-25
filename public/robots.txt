@@ -4,4 +4,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://ss99.ccwu.cc/sitemap.xml
+Sitemap: https://yok.us.ci/sitemap.xml
