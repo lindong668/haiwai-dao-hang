@@ -13,12 +13,6 @@
 <priority>1.0</priority>
 </url>
 <url>
-<loc>https://yok.us.ci/tools/pricescope.html</loc>
-<lastmod>2026-10-20</lastmod>
-<changefreq>monthly</changefreq>
-<priority>1.0</priority>
-</url>
-<url>
 <loc>https://yok.us.ci/tools/photopea.html</loc>
 <lastmod>2026-10-20</lastmod>
 <changefreq>monthly</changefreq>
@@ -185,5 +179,11 @@
 <lastmod>2026-10-20</lastmod>
 <changefreq>yearly</changefreq>
 <priority>0.6</priority>
+</url>
+<url>
+<loc>https://yok.us.ci/terms.html</loc>
+<lastmod>2026-10-31</lastmod>
+<changefreq>yearly</changefreq>
+<priority>0.3</priority>
 </url>
 </urlset>

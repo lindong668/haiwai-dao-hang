@@ -1,4 +1,22 @@
 # ============================================================
+# ★★ 版本号：C21（2026-10-31）
+#    版本序列：C18 → C19（加 Terms 页）→ C20（邮箱统一 yokok8@outlook.com）
+#              → 【C21 本轮：移除全部 PriceScope（2号站）痕迹】
+#
+# C21 改动：
+#   ① 删除 tools/pricescope.html（整页）
+#   ② index.html：删特色推荐块、删工具卡片、
+#      文案 "Two of the tools are our own" → "One of the tools is our own"
+#   ③ about.html：删「本站出品」PriceScope 条目 + 热门测评项
+#   ④ disclaimer.html / terms.html：自有产品表述去掉 PriceScope
+#   ⑤ epoch-converter / jsonlint / uuid-generator：
+#      "Browse more tools" 里的 PriceScope 链接删除
+#   ⑥ sitemap.xml：删除对应 URL（32 → 31 条）
+#
+# 背景：2 号站 you.piccalc.com 因数据源授权风险停止运营，
+#       全部页面 301 至 5 号站 home.saoo.me。导航站不再收录它。
+# ============================================================
+# ============================================================
 # 海外导航站（yok.us.ci）—— Cloudflare Workers + Assets
 #
 # 部署方式一（推荐，用命令行）：
