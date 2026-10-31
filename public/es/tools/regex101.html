@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta name="google-adsense-account" content="ca-pub-8915931557404979">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8915931557404979" crossorigin="anonymous"></script>
+<link href="/es/favicon.ico" rel="icon" sizes="any"/>
+<link href="/es/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/es/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/es/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<meta content="https://yok.us.ci/og-image.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="Imagen de marca de Useful Web Tools Directory" property="og:image:alt"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://yok.us.ci/og-image.png" name="twitter:image"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Regex101: probador de expresiones regulares con explicación en vivo</title>
+<meta name="description" content="Regex101 tests regular expressions against sample text with live match highlighting, a step-by-step explanation panel, and support for multiple regex engines. Free, no registration.">
+<meta name="keywords" content="regex101, regex tester, regular expression tester, regex debugger, online regex, regex explain">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<link rel="canonical" href="https://yok.us.ci/es/tools/regex101.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://yok.us.ci/es/tools/regex101.html">
+<meta property="og:title" content="Regex101: Regular Expression Tester with Live Explanation">
+<meta property="og:description" content="Regex101 tests regular expressions against sample text with live match highlighting, a step-by-step explanation panel, and support for multiple regex engines. Free, no registration.">
+<meta property="og:site_name" content="Useful Web Tools Directory">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Regex101: Regular Expression Tester with Live Explanation">
+<meta name="twitter:description" content="Regex101 tests regular expressions against sample text with live match highlighting, a step-by-step explanation panel, and support for multiple regex engines. Free, no registration.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--blue:#2563eb;--deep:#1e40af;--navy:#1e3a8a;--ink:#1e293b;--gray:#475569;--line:#e2e8f0;--bg:#f8fafc;--card:#fff}
+html{scroll-behavior:smooth}
+body{line-height:1.75;color:var(--ink);background:var(--bg);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+max-width:820px;margin:0 auto;padding:0 20px 70px;font-size:16.5px}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+
+.topbar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;
+padding:14px 0;border-bottom:1px solid var(--line);margin-bottom:8px;font-size:14px}
+.brand{font-weight:700;color:var(--blue);font-size:16px;letter-spacing:-.2px}
+.topbar nav a{margin-left:12px;color:var(--gray)}
+
+.crumb{font-size:13px;color:#94a3b8;margin:14px 0 18px}
+.crumb a{color:#64748b}
+
+h1{color:var(--navy);font-size:31px;line-height:1.3;margin-bottom:14px;letter-spacing:-.5px}
+.meta{font-size:13.5px;color:#94a3b8;margin-bottom:18px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.meta span{margin-right:16px}
+.lede{color:#334155;font-size:17.5px;line-height:1.7;margin:0 0 24px;padding:18px 20px;
+background:linear-gradient(135deg,#eff6ff,#f0f9ff);border-left:4px solid var(--blue);border-radius:0 8px 8px 0}
+
+.toc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 20px;margin:0 0 28px;font-size:15px}
+.toc b{display:block;color:var(--navy);margin-bottom:8px;font-size:14px;text-transform:uppercase;letter-spacing:.6px}
+.toc a{display:inline-block;margin:4px 18px 4px 0;color:var(--blue)}
+
+h2{color:var(--navy);font-size:22px;margin:38px 0 14px;padding-left:12px;border-left:4px solid var(--blue);letter-spacing:-.3px}
+h3{color:var(--deep);font-size:17.5px;margin:24px 0 10px}
+p{margin-bottom:15px}
+ul,ol{margin:0 0 16px 24px}
+li{margin-bottom:9px}
+strong{color:var(--navy)}
+
+.tw{overflow-x:auto;margin:16px 0 22px}
+table{width:100%;border-collapse:collapse;background:var(--card);font-size:15px;
+border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(15,23,42,.06)}
+th,td{border:1px solid var(--line);padding:11px 14px;text-align:left;vertical-align:top}
+th{background:#eff6ff;color:var(--navy);width:30%;font-weight:600}
+tr:nth-child(even) td{background:#fcfdff}
+/* CTA */
+.cta{display:inline-block;background:var(--blue);color:#fff!important;padding:13px 26px;border-radius:8px;
+font-weight:700;margin:6px 10px 6px 0;box-shadow:0 2px 6px rgba(37,99,235,.25);transition:.15s}
+.cta:hover{background:#1d4ed8;text-decoration:none;transform:translateY(-1px)}
+.cta.ghost{background:#fff;color:var(--blue)!important;border:1px solid var(--blue);box-shadow:none}
+.cta.ghost:hover{background:#eff6ff}
+
+.note{background:#fffbeb;border:1px solid #fcd34d;border-radius:8px;padding:14px 18px;margin:20px 0;font-size:14.5px;color:#78350f}
+.tip{background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:14px 18px;margin:20px 0;font-size:14.5px;color:#14532d}
+.info{background:#eff6ff;border:1px solid #93c5fd;border-radius:8px;padding:14px 18px;margin:20px 0;font-size:14.5px;color:var(--navy)}
+.note b,.tip b,.info b{display:block;margin-bottom:4px}
+
+.proscons{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:18px 0 24px}
+@media(max-width:620px){.proscons{grid-template-columns:1fr}}
+.pc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.pc h3{margin:0 0 10px;font-size:16px}
+.pc.ok{border-top:3px solid #22c55e}
+.pc.no{border-top:3px solid #f59e0b}
+.pc ul{margin:0 0 0 20px;font-size:15px}
+/* FAQ */
+.faq{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:6px 20px 16px;margin:18px 0 26px}
+.faq details{border-bottom:1px solid #f1f5f9;padding:14px 0}
+.faq details:last-child{border-bottom:none}
+.faq summary{cursor:pointer;font-weight:600;color:var(--deep);font-size:16px;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:before{content:"+";display:inline-block;width:18px;color:var(--blue);font-weight:700}
+.faq details[open] summary:before{content:"\2212"}
+.faq details p{margin:10px 0 2px 20px;font-size:15.5px;color:#334155}
+
+.back{margin-top:44px;padding-top:20px;border-top:1px solid var(--line);font-size:14.5px}
+.related{margin-top:14px;font-size:14.5px;line-height:2.2}
+.related a{margin-right:14px;display:inline-block;background:#fff;border:1px solid var(--line);
+padding:5px 12px;border-radius:20px;font-size:14px}
+.related a:hover{background:#eff6ff;border-color:var(--blue);text-decoration:none}
+footer{margin-top:30px;text-align:center;color:#94a3b8;font-size:13px;line-height:2}
+footer a{color:#64748b}
+
+
+body{ }
+.lsw{display:inline-flex;gap:4px;vertical-align:middle;margin-left:10px}
+.lsw button{border:1px solid var(--line);background:#fff;color:var(--gray);
+font-size:12px;padding:3px 9px;border-radius:5px;cursor:pointer;line-height:1.5}
+.lsw button.on{background:var(--blue);color:#fff;border-color:var(--blue)}
+.lang-en .cn{display:none!important}
+.lang-cn .en{display:none!important}
+.ad-disclosure{margin-top:10px;font-size:12.5px;color:#64748b;line-height:1.7}
+.ad-disclosure .cn{display:none}
+body.lang-cn .ad-disclosure .en{display:none}
+body.lang-cn .ad-disclosure .cn{display:inline}
+.btn{border:1px solid var(--blue);background:#fff;color:var(--blue);padding:4px 11px;border-radius:20px;cursor:pointer;font-size:13px}.btn.on{background:var(--blue);color:#fff}
+.langsel{padding:4px 6px;border-radius:6px;border:1px solid #cbd5e1;background:#fff;font-size:13px}</style>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://yok.us.ci/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://yok.us.ci/#img-media"}, {"@type": "ListItem", "position": 3, "name": "Regex101: Regular Expression Tester with Live Explanation", "item": "https://yok.us.ci/tools/regex101.html"}]}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "WebPage", "url": "https://yok.us.ci/tools/regex101.html", "name": "Regex101: Regular Expression Tester with Live Explanation", "description": "Regex101 tests regular expressions against sample text with live match highlighting, a step-by-step explanation panel, and support for multiple regex engines. Free, no registration.", "inLanguage": "en", "isPartOf": {"@type": "WebSite", "url": "https://yok.us.ci/", "name": "Useful Web Tools Directory"}}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is Regex101 free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, the tester, explanation and debugger are free without registration. An account lets you save patterns."}}, {"@type": "Question", "name": "Which regex engines does it support?", "acceptedAnswer": {"@type": "Answer", "text": "Several, including PCRE, JavaScript, Python and Go — select the one matching your target language."}}, {"@type": "Question", "name": "Why does my regex work here but not in my code?", "acceptedAnswer": {"@type": "Answer", "text": "Almost always an engine mismatch. Select the flavour your language actually uses before testing."}}, {"@type": "Question", "name": "What is the explanation panel?", "acceptedAnswer": {"@type": "Answer", "text": "A breakdown that walks through each token of your pattern in plain language, showing what it matches and why."}}, {"@type": "Question", "name": "Can it help with slow regexes?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, the debugger shows the matching steps and makes excessive backtracking visible."}}, {"@type": "Question", "name": "Can I save my patterns?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, with a free account you can save and share patterns."}}]}
+</script>
+<style>
+.rel-wrap{max-width:1100px;margin:40px auto 0;padding:0 20px}
+.rel-box{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:22px 24px;margin-bottom:20px}
+.rel-box h2{font-size:18px;color:#1e3a8a;margin-bottom:14px;border-left:4px solid #2563eb;padding-left:10px}
+.rel-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.rel-list a{display:block;padding:12px 14px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;text-decoration:none;color:#1d4ed8;font-weight:600;font-size:15px;transition:.2s}
+.rel-list a:hover{background:#eff6ff;border-color:#2563eb}
+.rel-list a small{display:block;margin-top:4px;color:#64748b;font-weight:400;font-size:13px}
+.crumb{max-width:1100px;margin:0 auto;padding:14px 20px 0;font-size:13px;color:#64748b}
+.crumb a{color:#2563eb;text-decoration:none}
+.crumb a:hover{text-decoration:underline}
+.langsel{padding:4px 6px;border-radius:6px;border:1px solid #cbd5e1;background:#fff;font-size:13px}</style>
+<link rel="alternate" hreflang="en" href="https://yok.us.ci/tools/regex101.html"/>
+<link rel="alternate" hreflang="es" href="https://yok.us.ci/es/tools/regex101.html"/>
+<link rel="alternate" hreflang="pt" href="https://yok.us.ci/pt/tools/regex101.html"/>
+<link rel="alternate" hreflang="x-default" href="https://yok.us.ci/tools/regex101.html"/>
+</head>
+<body class="lang-en">
+<div class="topbar">
+<a class="brand" href="https://yok.us.ci/">&larr; <span class="en">Directorio de herramientas web útiles</span></a>
+<nav><a href="/es/about.html"><span class="en">Acerca de</span></a> <a href="/es/contact.html"><span class="en">Contacto</span></a> <a href="/es/disclaimer.html"><span class="en">Aviso legal</span></a> <a href="/es/terms.html"><span class="en">Términos</span></a> <a href="/es/privacy.html"><span class="en">Privacidad</span></a><select class="btn langsel" onchange="location.href=this.value" aria-label="Language"><option value="https://yok.us.ci/tools/regex101.html">English</option><option value="https://yok.us.ci/es/tools/regex101.html" selected>Español</option><option value="https://yok.us.ci/pt/tools/regex101.html">Português</option></select></nav>
+</div>
+<div class="crumb"><a href="/es/"><span class="en">Inicio</span></a> &rsaquo; <span class="en">Herramientas</span> &rsaquo; <span class="en">Desarrollador</span> Utilidades</div>
+<h1>Regex101</h1>
+<div class="meta"><span><span class="en">Actualizado en octubre de 2026</span></span><span>Categoría: Utilidades para desarrolladores</span><span><span class="en">Probado en la práctica</span></span></div>
+<p class="lede"><span class="en">Las expresiones regulares son conocidas por ser más difíciles de leer que de escribir. Regex101 lo arregla: escribe un patrón, pega texto de prueba y resalta las coincidencias en vivo mientras explica cada parte del patrón en lenguaje sencillo.</span></p>
+<div class="toc"><b><span class="en">En esta página</span></b><a href="#what-it-is"><span class="en">Qué es</span></a> <a href="#how-to-use-it"><span class="en">Cómo usarlo</span></a> <a href="#free-plan-details"><span class="en">Detalles del plan gratuito</span></a> <a href="#strengths-and-limitations"><span class="en">Puntos fuertes y limitaciones</span></a> <a href="#who-should-use-it"><span class="en">¿Quién debería usarlo?</span></a> <a href="#faq"><span class="en">Preguntas frecuentes</span></a></div>
+<h2 id="what-it-is"><span class="en">Qué es</span></h2>
+<p><span class="en">El panel de explicación es lo que la distingue. En lugar de decirte solo si hubo coincidencia, recorre el patrón token por token: qué <code>\d+</code> hace, qué afirma una comprobación anticipada, por qué un cuantificador es codicioso, para que entiendas por qué un patrón se comporta así en lugar de adivinar.</span></p>
+<p><span class="en">Admite varios motores: PCRE (PHP), JavaScript, Python, Go y otros. Esto importa porque la sintaxis de las expresiones regulares difiere de verdad entre lenguajes, y un patrón que funciona en JavaScript puede fallar en Go.</span></p>
+<p><span class="en">Entre las funciones adicionales hay un depurador que muestra los pasos de coincidencia, una biblioteca de consulta rápida, generación de código y patrones guardados si te registras.</span></p><p><a class="cta" href="https://regex101.com/" target="_blank" rel="noopener nofollow"><span class="en">Abrir Regex101 &rarr;</span></a></p>
+<h2 id="how-to-use-it"><span class="en">Cómo usarlo</span></h2>
+<ol><li><span class="en">Ir a regex101.com</span></li><li><span class="en">Selecciona la variante (motor) que coincida con tu lenguaje de destino.</span></li><li><span class="en">Escribe tu patrón en el campo de expresión regular.</span></li><li><span class="en">Pega texto de muestra en el área de prueba y observa cómo se resaltan las coincidencias en vivo.</span></li><li><span class="en">Lee el panel de explicación para entender cada parte, o abre el depurador para ver los pasos de coincidencia.</span></li><li><span class="en">Copia el fragmento de código generado para tu lenguaje cuando funcione.</span></li></ol><div class="="><span class="en">consejo</span></div>
+<h2 id="free-plan-details"><span class="en">Detalles del plan gratuito</span></h2>
+<div class="tw"><table><tr><th><span class="en">Registro</span></th><td><span class="en">No necesario (una cuenta guarda los patrones)</span></td></tr><tr><th><span class="en">Marca de agua</span></th><td><span class="en">Ninguno</span></td></tr><tr><th><span class="en">Coste</span></th><td><span class="en">Gratis</span></td></tr><tr><th><span class="en">Engines</span></th><td><span class="en">PCRE, JavaScript, Python, Go y otros</span></td></tr><tr><th><span class="en">Funciones clave</span></th><td><span class="en">Resaltado de coincidencias en vivo, explicación token por token, depurador por pasos y consulta rápida</span></td></tr><tr><th><span class="en">Extras</span></th><td><span class="en">Generación de código, patrones guardados y pruebas unitarias</span></td></tr><tr><th><span class="en">Procesamiento</span></th><td><span class="en">En el navegador</span></td></tr></table></div><p class="note"><span class="en"><strong>Comprueba antes de fiarte:</strong> las cuotas gratuitas, los límites de archivos y los precios cambian con frecuencia. Confirma las condiciones actuales en el sitio oficial antes de depender de él para tu trabajo habitual.</span></p>
+<h2 id="strengths-and-limitations"><span class="en">Puntos fuertes y limitaciones</span></h2>
+<div class="proscons"><div class="pc ok"><h3><span class="en">Lo que funciona bien</span></h3><ul><li><span class="en">El panel de explicación hace comprensibles los patrones opacos</span></li><li><span class="en">Varios motores evitan errores por desajuste de variante</span></li><li><span class="en">El resaltado en vivo muestra exactamente qué coincidió</span></li><li><span class="en">El depurador revela retroceso catastrófico y problemas de rendimiento</span></li><li><span class="en">Genera fragmentos de código listos para usar</span></li></ul></div><div class="pc no"><h3><span class="en">Limitaciones</span></h3><ul><li><span class="en">Puede abrumar a los principiantes con su cantidad de paneles</span></li><li><span class="en">La explicación presupone cierto vocabulario de regex</span></li><li><span class="en">Los patrones guardados requieren una cuenta</span></li><li><span class="en">Los patrones muy complejos con entradas enormes pueden ser lentos</span></li></ul></div></div>
+<h2 id="who-should-use-it"><span class="en">¿Quién debería usarlo?</span></h2>
+<p><span class="en">Desarrolladores que escriben o depuran patrones, analistas de datos que limpian texto y cualquiera que haya heredado una expresión regular que nadie entiende y necesite averiguar qué hace.</span></p>
+<h2 id="faq"><span class="en">Preguntas frecuentes</span></h2>
+<div class="faq"><details><summary><span class="en">¿Regex101 es gratis?</span></summary><p><span class="en">Sí, el probador, la explicación y el depurador son gratuitos sin registro. Una cuenta te permite guardar patrones.</span></p></details><details><summary><span class="en">¿Qué motores de regex admite?</span></summary><p><span class="en">Varios, incluidos PCRE, JavaScript, Python y Go: selecciona el que coincida con tu lenguaje de destino.</span></p></details><details><summary><span class="en">¿Por qué mi regex funciona aquí pero no en mi código?</span></summary><p><span class="en">Casi siempre un desajuste de motor. Selecciona la variante que tu lenguaje usa realmente antes de probar.</span></p></details><details><summary><span class="en">¿Qué es el panel de explicación?</span></summary><p><span class="en">Un desglose que recorre cada token de tu patrón en lenguaje sencillo, mostrando qué coincide y por qué.</span></p></details><details><summary><span class="en">¿Ayuda con las regex lentas?</span></summary><p><span class="en">Sí, el depurador muestra los pasos de coincidencia y hace visible el retroceso excesivo.</span></p></details><details><summary><span class="en">¿Puedo guardar mis patrones?</span></summary><p><span class="en">Sí, con una cuenta gratuita puedes guardar y compartir patrones.</span></p></details></div><div class="back">
+<a href="/es/">&larr; <span class="en">Volver al directorio completo de herramientas</span></a>
+<div class="related"><span class="en">Explora más herramientas:</span> <a href="/es/tools/jsonlint.html">JSONLint</a> <a href="/es/tools/base64-encode.html">Codificar Base64</a> <a href="/es/tools/epoch-converter.html">EpochConverter</a> <a href="/es/tools/uuid-generator.html">Generador UUID</a> <a href="/es/tools/paraphraser.html">Paraphraser.io</a></div>
+</div>
+<div class="rel-wrap"><div class="rel-box"><h2><span class="en">Más utilidades para desarrolladores</span></h2><div class="rel-list"><a href="/es/tools/jsonlint.html"><span class="en">JSONLint</span><small><span class="en">Reseña completa & cómo usarlo</span></small></a><a href="/es/tools/base64-encode.html"><span class="en">Codificar / decodificar Base64</span><small><span class="en">Reseña completa & cómo usarlo</span></small></a><a href="/es/tools/epoch-converter.html"><span class="en">EpochConverter</span><small><span class="en">Reseña completa & cómo usarlo</span></small></a><a href="/es/tools/uuid-generator.html"><span class="en">Generador UUID</span><small><span class="en">Reseña completa & cómo usarlo</span></small></a></div></div><div class="rel-box"><h2><span class="en">Guías relacionadas</span></h2><div class="rel-list"><a href="/es/guides/developer-tools-that-save-time.html"><span class="en">Herramientas para desarrolladores que ahorran tiempo</span><small><span class="en">Guía de comparación en profundidad</span></small></a><a href="/es/guides/ai-tools-for-content-creators.html"><span class="en">Herramientas de IA para creadores de contenido</span><small><span class="en">Guía de comparación en profundidad</span></small></a></div></div></div>
+<footer>
+&copy; 2026 <span class="en">Directorio de herramientas web útiles</span> <div class="ad-disclosure"><span class="en">Este sitio contiene anuncios. Los anuncios no influyen en nuestras recomendaciones ni en nuestras reseñas de herramientas.</span></div> &middot;
+<a href="/es/about.html"><span class="en">Acerca de</span></a> &middot; <a href="/es/contact.html"><span class="en">Contacto</span></a> &middot;
+<a href="/es/disclaimer.html"><span class="en">Aviso legal</span></a> &middot; <a href="/es/terms.html"><span class="en">Términos</span></a> &middot; <a href="/es/privacy.html"><span class="en">Política de privacidad</span></a>
+<br><span class="en">Correo: <a href="mailto:yokok8@outlook.com">yokok8@outlook.com</a></span></footer>
+
+
+</body>
+</html>
