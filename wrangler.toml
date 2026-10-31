@@ -9,9 +9,9 @@
 #   把 public/ 和 src/ 与 wrangler.toml 一起上传（或用 GitHub 连接仓库）
 #   然后在「设置 → 域和路由」里添加自定义域 yok.us.ci
 #
-# name = 'haiwai-dao-hangang'
+# name 必须与 CF 控制台上的 Worker 名字一致
 # ============================================================
-name = "haiwai-dao-hang"
+name = name = 'haiwai-dao-hangang'
 # 账号 ID 写死，deploy 时不再交互提问选账号
 account_id = "d49e51b1279804c22035a33a9c1cb06e"
 compatibility_date = "2026-09-01"
