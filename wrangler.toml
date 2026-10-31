@@ -1,0 +1,64 @@
+# ============================================================
+# 海外导航站（yok.us.ci）—— Cloudflare Workers + Assets
+#
+# 部署方式一（推荐，用命令行）：
+#   npx wrangler deploy
+#
+# 部署方式二（网页上传，你一直在用的方式）：
+#   CF 控制台 → Workers 和 Pages → 创建 → Workers →
+#   把 public/ 和 src/ 与 wrangler.toml 一起上传（或用 GitHub 连接仓库）
+#   然后在「设置 → 域和路由」里添加自定义域 yok.us.ci
+#
+# name 必须与 CF 控制台上的 Worker 名字一致
+# ============================================================
+name = "haiwai-dao-hang"
+# 账号 ID 写死，deploy 时不再交互提问选账号
+account_id = "d49e51b1279804c22035a33a9c1cb06e"
+compatibility_date = "2026-09-01"
+main = "src/index.js"
+
+# ★ C18：明确写入 routes（原来只写在注释里，靠控制台手加，容易漏）
+routes = [
+  { pattern = "yok.us.ci/*", zone_name = "yok.us.ci" },
+  { pattern = "www.yok.us.ci/*", zone_name = "yok.us.ci" }
+]
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+
+# ★★ C18 关键修复：必须开启，否则 Worker 代码根本不执行
+#
+# 默认「静态资源优先」：请求能匹配到 public/ 里的同名文件就直接返回，
+# Worker 代码【完全不跑】。后果：
+#   ① src/index.js 第 19 行的 www → apex 301 是【死代码】，www 不跳转
+#      → www 与 apex 双份内容，GSC 判重复
+#   ② ads.txt / robots.txt / sitemap.xml 的硬编码拦截也不生效，
+#      只能依赖 _headers 声明 MIME（多一层不确定）
+#   ③ GSC 因此可能显示「无 robots.txt 文件」
+#
+# 改成 true 后 Worker 先执行，代码内的顺序真正生效。
+# 本站 index.js 末尾有 env.ASSETS.fetch(request) 兜底，
+# 普通页面仍由静态层返回，不受影响。
+run_worker_first = true
+
+# 请求日志（CF 控制台 → Workers → 该站 → Observability 实时查看）
+# 用于查清流量来源：Googlebot / 各类爬虫 / 扫描机器人
+#
+# ⚠️ invocation_logs = true 是关键：
+#    只写 enabled = true 只会记录 console.log 的输出，
+#    而本站代码里没有任何 console.log —— 那样等于什么都看不到。
+#    invocation_logs 才负责记录「每一次请求」本身（URL / UA / IP / 状态码）。
+[observability]
+enabled = true
+
+[observability.logs]
+enabled = true
+invocation_logs = true      # ★ 记录每次调用，缺了它看不到访问者
+head_sampling_rate = 1      # 100% 采样，不漏
+
+# ---- 修复 Workers Builds 预览构建红叉 ----
+# 根因：CF 对同一次提交跑两套构建，生产 wrangler deploy 成功，
+#       预览 wrangler preview 要求配置中存在 [previews] 块。
+# 本站无环境变量，按 CF 官方说明留空块即可。
+[previews]
